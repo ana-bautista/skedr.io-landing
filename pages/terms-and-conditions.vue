@@ -8,7 +8,9 @@
         <div class="container">
           <div class="row">
             <div class="col-md-8 ml-auto mr-auto">
-              <h1>Terms and Conditions</h1>
+              <p class="h1">
+                Terms and Conditions
+              </p>
 
               <p>Last updated: October 16, 2018</p>
               <p>
@@ -293,12 +295,20 @@
 </template>
 <script>
 import QHeaderSmall from '~/components/QHeaderSmall'
+import ogImage from '~/assets/img/privacy-policy.jpg'
+
 export default {
   components: { QHeaderSmall },
   head() {
     return {
       title: this.$t('terms.meta_title'),
-      meta: [{ hid: 'description', name: 'description', content: this.$t('terms.meta_desc') }]
+      meta: [
+        { hid: 'description', name: 'description', content: this.$t('terms.meta_desc') },
+        {
+          name: 'image',
+          content: `https://skedr.io${ogImage}`
+        }
+      ]
     }
   }
 }

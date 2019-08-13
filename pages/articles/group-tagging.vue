@@ -2,14 +2,14 @@
   <div class="wrapper">
     <q-header-small class-name="article-main">
       <h1 class="title" v-html="article.title" />
-      <h3 v-html="article.subtitle" />
+      <p class="h3" v-html="article.subtitle" />
     </q-header-small>
     <div class="section">
       <div class="">
         <div class="container">
           <div class="row">
             <div class="col-md-8 ml-auto mr-auto">
-              <h3 class="title" v-html="article.title" />
+              <p class="title h3" v-html="article.title" />
               <p v-html="article.introduction" />
             </div>
           </div>
@@ -20,9 +20,11 @@
           <div class="section-story-overview">
             <div class="row">
               <div class="col-md-8 ml-auto mr-auto">
-                <h3>Where do you start?</h3>
+                <h2 class="h3">
+                  Where do you start?
+                </h2>
                 <p>
-                  In order to use this feature you have to add tags to your photos when uploading them. That is a
+                  In order to use this feature you have to <strong>add tags to your photos</strong> when uploading them. That is a
                   requirement because we will use your tags to bind them to your groups. Flickr automatically adds tags
                   to your photos based on their AI algorithm but, for time being ( Oct 2018 ), those tags are hidden
                   from the API so we cannot see them through the API.  This is something we need to pay attention on,
@@ -35,9 +37,9 @@
                   <i><small>*You need to be logged into Skedr account</small></i>
                 </p>
                 <br>
-                <div v-b-modal.sked-button class="image-container image-tags" />
+                <div v-b-modal.sked-button class="image-container image-tags" title="Click on the photo for more information" />
                 <b-modal id="sked-button" hide-header hide-footer>
-                  <img class="image-fluid image-tags" src="~assets/img/articles/group-tagging/1-image-tags.png">
+                  <img class="image-fluid image-tags" src="~assets/img/articles/group-tagging/1-image-tags.png" alt="Photo tags">
                 </b-modal>
                 <br>
                 <br>
@@ -82,11 +84,13 @@
           <div class="section-story-overview">
             <div class="row">
               <div class="col-md-8 ml-auto mr-auto">
-                <h3>How to configure each group</h3>
+                <h2 class="h3">
+                  How to configure each group
+                </h2>
                 <p>
                   To configure each group you have to go to
-                  <a href="https://app.skedr.io/autoimport-tags/">app.skedr.io/autoimport-tags</a> and then filter with the
-                  search option at the toolbar. It will first search between the groups you have already
+                  <a href="https://app.skedr.io/autoimport-tags/">app.skedr.io/autoimport-tags</a> and then <strong>filter with the
+                    search option at the toolbar</strong>. It will first search between the groups you have already
                   joined. There is a checkbox with the label 'Search joined groups only' active by default. If you
                   deactivate this checkbox you will be able to search new groups and join them.
                 </p>
@@ -96,11 +100,17 @@
                   will show you which photos will be added for each particular tag. Once you have added all tags hit
                   save. We will automatically add all your photos to the corresponding group.
                 </p>
-                <p>Click on the video below to see a bigger and more complete view of the process.</p>
-                <div v-b-modal.filter-groups class="image-container filter-groups" />
+                <p><strong>Click on the video below to see a bigger and more complete view of the process.</strong></p>
+                <div v-b-modal.filter-groups class="image-container filter-groups" title="Click on the photo for more information" />
                 <b-modal id="filter-groups" size="lg" hide-header hide-footer>
-                  <img class="image-fluid" src="~/assets/img/articles/group-tagging/large.gif">
+                  <img class="image-fluid" src="~/assets/img/articles/group-tagging/large.gif" alt="Group Tagging process">
                 </b-modal>
+                <br>
+                <br>
+                <p>
+                  If you still have doubts about this, write to <a href="mailto:info@skedr.io">info@skedr.io</a> for
+                  more help.
+                </p>
               </div>
             </div>
           </div>
@@ -116,15 +126,15 @@
                   <div class="col-md-2">
                     <div class="card-avatar">
                       <a href="#pablo">
-                        <img class="img img-raised" src="~/assets/img/enric-bisbe-gil.jpg">
+                        <img class="img img-raised" src="~/assets/img/enric-bisbe-gil.jpg" alt="Enric Bisbe Gil, playing the accordion">
                       </a>
                       <div class="ripple-container" />
                     </div>
                   </div>
                   <div class="col-md-8">
-                    <h4 class="card-title">
+                    <p class="card-title h4">
                       Enric Bisbe Gil
-                    </h4>
+                    </p>
                     <p class="description">
                       <a href="https://github.com/ebisbe">Developer</a> and
                       <a href="https://www.flickr.com/photos/enric-bisbe">Photography enthusiast</a>. Creator of
@@ -147,6 +157,8 @@
 </template>
 <script>
 import QHeaderSmall from '@/components/QHeaderSmall'
+import ogImage from '~/assets/img/articles/group-tagging/main.jpg'
+
 export default {
   components: { QHeaderSmall },
   validate({ params }) {
@@ -160,6 +172,10 @@ export default {
           hid: 'description',
           name: 'description',
           content: 'Sharing images into your prefered groups from Flickr is really easy.'
+        },
+        {
+          name: 'image',
+          content: `https://skedr.io${ogImage}`
         }
       ]
     }
